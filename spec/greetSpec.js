@@ -47,4 +47,9 @@ describe('A suite of test for greet', function () {
 
     expect(result).toBe('Hello, Amy and Charlotte. AND HELLO BRIAN !')
   })
+  it('greeting with language selection in params should return "Bonjour, Marie"', function () {
+    const result = greet.greetWithLanguageSelection('Marie', 'fr')
+
+    expect(result).toBe('Bonjour, Marie.')
+  })
 })

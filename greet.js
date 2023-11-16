@@ -55,5 +55,14 @@ module.exports = {
     }
 
     return 'Hello, ' + lowerText + 'AND HELLO ' + upperText + ' !'
+  },
+  greetWithLanguageSelection (name, language) {
+    if (language === 'fr') {
+      return 'Bonjour, ' + name + '.'
+    } else if (language === 'nl') {
+      return 'Hallo,' + 'name' + '.'
+    } else {
+      return 'Hello, ' + name + '.'
+    }
   }
 }
