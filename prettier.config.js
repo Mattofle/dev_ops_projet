@@ -2,7 +2,7 @@ const config = {
     trailingComma: 'es5',
     tabWidth: 4,
     semi: false,
-    singleQuote: true
-  }
-  
-  module.exports = config
+    singleQuote: true,
+}
+
+module.exports = config

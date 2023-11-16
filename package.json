@@ -1,10 +1,9 @@
 {
-  "name": "projet_01",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/app.js",
-
-  "scripts": {
+    "name": "projet_01",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/app.js",
+    "scripts": {
         "start": "nodemon -e '*' ./bin/www",
         "prettier": "prettier --check",
         "prettier:fix": "prettier --write .",
