@@ -32,4 +32,14 @@ describe('A suite of test for greet', function () {
 
     expect(result).toBe('Hello, Jill and Jane')
   })
+  it('greeting with more than two names should return "Hello, Amy, Brian and Charlotte"', function () {
+    const result = greet.greetMultiples(['Amy', 'Brian', 'Charlotte'])
+
+    expect(result).toBe('Hello, Amy, Brian and Charlotte')
+  })
+  it('greeting with more than two names should return "Hello, Amy, Brian and Charlotte"', function () {
+    const result = greet.greetMultiples(['Amy', 'Brian', 'Charlotte', 'Matteo', 'Teodor'])
+
+    expect(result).toBe('Hello, Amy, Brian, Charlotte, Matteo and Teodor')
+  })
 })
