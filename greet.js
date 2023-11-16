@@ -1,6 +1,6 @@
 module.exports = {
 
-    greet() {
-        return "Hello, Bob"
+    greet(name) {
+        return "Hello, " + name;
     }
 }
