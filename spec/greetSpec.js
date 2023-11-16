@@ -37,9 +37,14 @@ describe('A suite of test for greet', function () {
 
     expect(result).toBe('Hello, Amy, Brian and Charlotte')
   })
-  it('greeting with more than two names should return "Hello, Amy, Brian and Charlotte"', function () {
+  it('greeting with more than two names should return "Hello, Amy, Brian, Charlotte, Matteo and Teodor"', function () {
     const result = greet.greetMultiples(['Amy', 'Brian', 'Charlotte', 'Matteo', 'Teodor'])
 
     expect(result).toBe('Hello, Amy, Brian, Charlotte, Matteo and Teodor')
+  })
+  it('greeting with upper and lower case names should return "Hello, Amy and Charlotte. AND HELLO BRIAN !"', function () {
+    const result = greet.greetWithUpperAndLowerCase(['Amy', 'BRIAN', 'Charlotte'])
+
+    expect(result).toBe('Hello, Amy and Charlotte. AND HELLO BRIAN !')
   })
 })
