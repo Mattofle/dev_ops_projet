@@ -27,4 +27,9 @@ describe('A suite of test for greet', function () {
 
     expect(result).toBe('HELLO, JERRY!')
   })
+  it('greeting with two names return "Hello, Jill and Jane"', function () {
+    const result = greet.greetMultiple(['Jill', 'Jane'])
+
+    expect(result).toBe('Hello, Jill and Jane')
+  })
 })
