@@ -22,4 +22,9 @@ describe('A suite of test for greet', function () {
 
     expect(result).toBe('Hello, my friend')
   })
+  it('greeeting with full uppercase name return "HELLO, "NAME"!', function () {
+    const result = greet.greet('JERRY')
+
+    expect(result).toBe('HELLO, JERRY!')
+  })
 })
