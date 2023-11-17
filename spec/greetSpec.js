@@ -72,4 +72,9 @@ describe('A suite of test for greet', function () {
 
     expect(result).toBe('Hello, Marie.')
   })
+  it('greeting language NULL should return "Hello, Marie."', function () {
+    const result = greet.greetWithLanguageSelection('Marie',null)
+
+    expect(result).toBe('Hello, Marie.')
+  })
 })
