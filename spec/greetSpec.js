@@ -3,7 +3,7 @@ const greet = require('../greet')
 
 describe('A suite of test for greet', function () {
   it('greeting returns given hello, + Bob', function () {
-    const result = greet.greet('Bob')
+    const result = greet.greet(['Bob'])
 
     expect(result).toBe('Hello, Bob')
   })
@@ -23,27 +23,37 @@ describe('A suite of test for greet', function () {
     expect(result).toBe('Hello, my friend')
   })
   it('greeeting with full uppercase name return "HELLO, "NAME"!', function () {
-    const result = greet.greet('JERRY')
+    const result = greet.greet(['JERRY'])
 
     expect(result).toBe('HELLO, JERRY!')
   })
-  it('greeting with two names return "Hello, Jill and Jane"', function () {
-    const result = greet.greetMultiple(['Jill', 'Jane'])
+  it('greeting with two names return "Hello, Jill and Jane."', function () {
+    const result = greet.greet(['Jill', 'Jane'])
 
-    expect(result).toBe('Hello, Jill and Jane')
+    expect(result).toBe('Hello, Jill and Jane.')
   })
-  it('greeting with more than two names should return "Hello, Amy, Brian and Charlotte"', function () {
-    const result = greet.greetMultiples(['Amy', 'Brian', 'Charlotte'])
+  it('greeting with more than two names should return "Hello, Amy, Brian and Charlotte."', function () {
+    const result = greet.greet(['Amy', 'Brian', 'Charlotte'])
 
-    expect(result).toBe('Hello, Amy, Brian and Charlotte')
+    expect(result).toBe('Hello, Amy, Brian and Charlotte.')
   })
-  it('greeting with more than two names should return "Hello, Amy, Brian, Charlotte, Matteo and Teodor"', function () {
-    const result = greet.greetMultiples(['Amy', 'Brian', 'Charlotte', 'Matteo', 'Teodor'])
+  it('greeting with more than two names should return "Hello, Amy, Brian, Charlotte, Matteo and Teodor."', function () {
+    const result = greet.greet([
+      'Amy',
+      'Brian',
+      'Charlotte',
+      'Matteo',
+      'Teodor'
+    ])
 
-    expect(result).toBe('Hello, Amy, Brian, Charlotte, Matteo and Teodor')
+    expect(result).toBe('Hello, Amy, Brian, Charlotte, Matteo and Teodor.')
   })
   it('greeting with upper and lower case names should return "Hello, Amy and Charlotte. AND HELLO BRIAN !"', function () {
-    const result = greet.greetWithUpperAndLowerCase(['Amy', 'BRIAN', 'Charlotte'])
+    const result = greet.greetWithUpperAndLowerCase([
+      'Amy',
+      'BRIAN',
+      'Charlotte'
+    ])
 
     expect(result).toBe('Hello, Amy and Charlotte. AND HELLO BRIAN !')
   })
@@ -73,7 +83,7 @@ describe('A suite of test for greet', function () {
     expect(result).toBe('Hello, Marie.')
   })
   it('greeting language NULL should return "Hello, Marie."', function () {
-    const result = greet.greetWithLanguageSelection('Marie',null)
+    const result = greet.greetWithLanguageSelection('Marie', null)
 
     expect(result).toBe('Hello, Marie.')
   })
