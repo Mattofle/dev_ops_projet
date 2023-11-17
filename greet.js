@@ -57,11 +57,12 @@ module.exports = {
     return 'Hello, ' + lowerText + 'AND HELLO ' + upperText + ' !'
   },
   greetWithLanguageSelection (name, language) {
+    if(arguments.length > 2) return 'Select only one language.';
     if (language === 'fr') {
       return 'Bonjour, ' + name + '.'
     } else if (language === 'nl') {
-      return 'Hallo,' + 'name' + '.'
-    } else if (language === 'en'){
+      return 'Hallo,' + name + '.'
+    } else if (language === 'en' || !language){
       return 'Hello, ' + name + '.'
     }else{
       return 'wrong language, select between fr, nl or en.'

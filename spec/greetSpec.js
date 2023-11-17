@@ -57,4 +57,14 @@ describe('A suite of test for greet', function () {
 
     expect(result).toBe('wrong language, select between fr, nl or en.')
   })
+  it('greeting with wrong language selection in params should return "wrong language, select between fr, nl or en."', function () {
+    const result = greet.greetWithLanguageSelection('Marie', 'nl', 'fr')
+
+    expect(result).toBe('Select only one language.')
+  })
+  it('greeting without language selection in params should return "Hello, Marie."', function () {
+    const result = greet.greetWithLanguageSelection('Marie', '')
+
+    expect(result).toBe('Hello, Marie.')
+  })
 })
