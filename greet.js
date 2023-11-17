@@ -61,8 +61,10 @@ module.exports = {
       return 'Bonjour, ' + name + '.'
     } else if (language === 'nl') {
       return 'Hallo,' + 'name' + '.'
-    } else {
+    } else if (language === 'en'){
       return 'Hello, ' + name + '.'
+    }else{
+      return 'wrong language, select between fr, nl or en.'
     }
   }
 }
