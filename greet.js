@@ -1,16 +1,25 @@
 /* eslint-disable no-unreachable */
 module.exports = {
-  greet (names = []) {
-    if (names == null || names[0] === undefined || names[0] === '') { return 'Hello, my friend' }
-    if (names.length === 1) {
-      if (names[0] === names[0].toUpperCase()) return 'HELLO, ' + names[0] + '!'
-      return 'Hello, ' + names
+  greet (names = [], language) {
+    if (arguments.length > 2) return 'Select only one language.'
+    let greetLanguage = []
+    if (!language || language === null) {
+      greetLanguage.push('Hello, ', ' and ')
     } else {
-      return this.greetWithUpperAndLowerCase(names)
+      greetLanguage = this.greetWithLanguageSelection(language)
+      if (greetLanguage.length === 1) return greetLanguage[0]
+    }
+    // const greetLanguage = this.greetWithLanguageSelection(language)
+    if (names == null || names[0] === undefined || names[0] === '') { return greetLanguage[0] + 'my friend' }
+    if (names.length === 1) {
+      if (names[0] === names[0].toUpperCase()) return greetLanguage[0].toUpperCase() + names[0] + '!'
+      return greetLanguage[0] + names + '.'
+    } else {
+      return this.greetWithUpperAndLowerCase(names, greetLanguage)
     }
   },
 
-  greetWithUpperAndLowerCase (names = []) {
+  greetWithUpperAndLowerCase (names = [], greetLanguage = []) {
     const upperNames = []
     const lowerNames = []
 
@@ -27,7 +36,7 @@ module.exports = {
     for (let i = 0; i < lowerNames.length; i++) {
       lowerText = lowerText + lowerNames[i] + ', '
     }
-    lowerText = lowerText.slice(0, -2) + ' and ' + last + '.'
+    lowerText = lowerText.slice(0, -2) + greetLanguage[1] + last + '.'
 
     let upperText = ''
     if (upperNames.length === 1) {
@@ -37,23 +46,22 @@ module.exports = {
       for (let i = 0; i < upperNames.length; i++) {
         upperText += upperNames[i] + ', '
       }
-      upperText = upperText.slice(0, -2) + ' AND ' + last + '. '
+      upperText = upperText.slice(0, -2) + greetLanguage[1].toUpperCase() + last
     }
-    if (lowerNames.length === 0) return 'HELLO, ' + upperText + '!'
-    if (upperNames.length === 0) return 'Hello, ' + lowerText
-    return 'Hello, ' + lowerText + ' AND HELLO ' + upperText + ' !'
+    if (lowerNames.length === 0) return greetLanguage[0].toUpperCase() + upperText + '!'
+    if (upperNames.length === 0) return greetLanguage[0] + lowerText
+    return greetLanguage[0] + lowerText + greetLanguage[1].toUpperCase() + greetLanguage[0].toUpperCase() + upperText + ' !'
   },
 
-  greetWithLanguageSelection (names, language) {
-    if (arguments.length > 2) return 'Select only one language.'
+  greetWithLanguageSelection (language) {
     if (language === 'fr') {
-      return 'Bonjour, ' + names + '.'
+      return ['Bonjour, ', ' et ']
     } else if (language === 'nl') {
-      return 'Hallo,' + names + '.'
-    } else if (language === 'en' || !language) {
-      return 'Hello, ' + names + '.'
+      return ['Hallo, ', ' en ']
+    } else if (language === 'en' || language === undefined) {
+      return ['Hello, ', ' and ']
     } else {
-      return 'wrong language, select between fr, nl or en.'
+      return ['wrong language, select between fr, nl or en.']
     }
   }
 }

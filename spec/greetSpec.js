@@ -5,7 +5,7 @@ describe('A suite of test for greet', function () {
   it('greeting returns given hello, + Bob', function () {
     const result = greet.greet(['Bob'])
 
-    expect(result).toBe('Hello, Bob')
+    expect(result).toBe('Hello, Bob.')
   })
   it('greeting with null returns "Hello, my friend"', function () {
     const result = greet.greet(null)
@@ -49,42 +49,57 @@ describe('A suite of test for greet', function () {
     expect(result).toBe('Hello, Amy, Brian, Charlotte, Matteo and Teodor.')
   })
   it('greeting with upper and lower case names should return "Hello, Amy and Charlotte. AND HELLO BRIAN !"', function () {
-    const result = greet.greetWithUpperAndLowerCase([
+    const result = greet.greet([
       'Amy',
       'BRIAN',
       'Charlotte'
     ])
 
-    expect(result).toBe('Hello, Amy and Charlotte. AND HELLO BRIAN !')
+    expect(result).toBe('Hello, Amy and Charlotte. AND HELLO, BRIAN !')
   })
   it('greeting with language selection in params should return "Bonjour, Marie"', function () {
-    const result = greet.greetWithLanguageSelection('Marie', 'fr')
+    const result = greet.greet(['Marie'], 'fr')
 
     expect(result).toBe('Bonjour, Marie.')
   })
   it('greeting with wrong language selection in params should return "wrong language, select between fr, nl or en."', function () {
-    const result = greet.greetWithLanguageSelection('Marie', 'de')
+    const result = greet.greet(['Marie'], 'de')
 
     expect(result).toBe('wrong language, select between fr, nl or en.')
   })
   it('greeting with wrong language selection in params should return "wrong language, select between fr, nl or en."', function () {
-    const result = greet.greetWithLanguageSelection('Marie', 'nl', 'fr')
+    const result = greet.greet(['Marie'], 'nl', 'fr')
 
     expect(result).toBe('Select only one language.')
   })
   it('greeting without language selection in params should return "Hello, Marie."', function () {
-    const result = greet.greetWithLanguageSelection('Marie', '')
+    const result = greet.greet(['Marie'], '')
 
     expect(result).toBe('Hello, Marie.')
   })
   it('greeting language undefined should return "Hello, Marie."', function () {
-    const result = greet.greetWithLanguageSelection('Marie', undefined)
+    const result = greet.greet(['Marie'], undefined)
 
     expect(result).toBe('Hello, Marie.')
   })
   it('greeting language NULL should return "Hello, Marie."', function () {
-    const result = greet.greetWithLanguageSelection('Marie', null)
+    const result = greet.greet(['Marie'], null)
 
     expect(result).toBe('Hello, Marie.')
+  })
+  it('greeting language NULL should return "Hallo, Marie, Pierre en Jean."', function () {
+    const result = greet.greet(['Marie', 'Pierre', 'Jean'], 'nl')
+
+    expect(result).toBe('Hallo, Marie, Pierre en Jean.')
+  })
+  it('greeting with upper and multiple lower case names should return "Hello, Amy and Charlotte. AND HELLO, BRIAN AND NATHAN !"', function () {
+    const result = greet.greet([
+      'Amy',
+      'BRIAN',
+      'Charlotte',
+      'NATHAN'
+    ])
+
+    expect(result).toBe('Hello, Amy and Charlotte. AND HELLO, BRIAN AND NATHAN !')
   })
 })
