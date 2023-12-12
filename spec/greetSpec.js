@@ -49,11 +49,7 @@ describe('A suite of test for greet', function () {
     expect(result).toBe('Hello, Amy, Brian, Charlotte, Matteo and Teodor.')
   })
   it('greeting with upper and lower case names should return "Hello, Amy and Charlotte. AND HELLO BRIAN !"', function () {
-    const result = greet.greet([
-      'Amy',
-      'BRIAN',
-      'Charlotte'
-    ])
+    const result = greet.greet(['Amy', 'BRIAN', 'Charlotte'])
 
     expect(result).toBe('Hello, Amy and Charlotte. AND HELLO, BRIAN !')
   })
@@ -93,13 +89,10 @@ describe('A suite of test for greet', function () {
     expect(result).toBe('Hallo, Marie, Pierre en Jean.')
   })
   it('greeting with upper and multiple lower case names should return "Hello, Amy and Charlotte. AND HELLO, BRIAN AND NATHAN !"', function () {
-    const result = greet.greet([
-      'Amy',
-      'BRIAN',
-      'Charlotte',
-      'NATHAN'
-    ])
+    const result = greet.greet(['Amy', 'BRIAN', 'Charlotte', 'NATHAN'])
 
-    expect(result).toBe('Hello, Amy and Charlotte. AND HELLO, BRIAN AND NATHAN !')
+    expect(result).toBe(
+      'Hello, Amy and Charlotte. AND HELLO, BRIAN AND NATHAN !'
+    )
   })
 })

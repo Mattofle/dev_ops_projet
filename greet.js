@@ -12,7 +12,9 @@ module.exports = {
       if (greetLanguage.length === 1) return greetLanguage[0]
     }
 
-    if (!names || !names[0]) { return greetLanguage[0] + 'my friend' }
+    if (!names || !names[0]) {
+      return greetLanguage[0] + 'my friend'
+    }
 
     return this.greetWithUpperAndLowerCase(names, greetLanguage)
   },
@@ -22,7 +24,7 @@ module.exports = {
     const lowerNames = []
 
     if (names.length === 1) {
-      if (names[0] === names[0].toUpperCase()) return greetLanguage[0].toUpperCase() + names[0] + '!'
+      if (names[0] === names[0].toUpperCase()) { return greetLanguage[0].toUpperCase() + names[0] + '!' }
       return greetLanguage[0] + names + '.'
     }
 
@@ -49,13 +51,21 @@ module.exports = {
       for (let i = 0; i < upperNames.length; i++) {
         upperText += upperNames[i] + ', '
       }
-      upperText = upperText.slice(0, -2) + greetLanguage[1].toUpperCase() + last
+      upperText =
+                upperText.slice(0, -2) + greetLanguage[1].toUpperCase() + last
     }
 
-    if (lowerNames.length === 0) return greetLanguage[0].toUpperCase() + upperText + '!'
+    if (lowerNames.length === 0) { return greetLanguage[0].toUpperCase() + upperText + '!' }
     if (upperNames.length === 0) return greetLanguage[0] + lowerText
 
-    return greetLanguage[0] + lowerText + greetLanguage[1].toUpperCase() + greetLanguage[0].toUpperCase() + upperText + ' !'
+    return (
+      greetLanguage[0] +
+            lowerText +
+            greetLanguage[1].toUpperCase() +
+            greetLanguage[0].toUpperCase() +
+            upperText +
+            ' !'
+    )
   },
 
   greetWithLanguageSelection (language) {
