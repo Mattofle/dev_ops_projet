@@ -8,8 +8,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Install dependencies
-        run: |
+      - run: |
        echo "installing dependencies" 
        npm install
       
