@@ -11,7 +11,7 @@
         "lint:fix": "eslint --fix",
         "code:fix": "prettier --write . && eslint --fix",
         "commit": "cz",
-        "test": "jasmine"
+        "test": "jest --coverage"
     },
     "devDependencies": {
         "cz-conventional-changelog": "^3.3.0",
