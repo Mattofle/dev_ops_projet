@@ -24,6 +24,16 @@ jobs:
           run: |
            echo "Starting pipeline at $(date + "%H:%M:%S %Z")"
 
+        - name: Cheking prettier
+          run: |
+           echo "Checking prettier format"
+           npm run prettier
+
+        - name: Checking Lint
+          run: |
+           echo "Checking lint"
+           npm run lint
+
       
         - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
         - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
