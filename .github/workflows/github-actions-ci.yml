@@ -43,7 +43,7 @@ jobs:
           run: npm run build   
 
         - name : Pipeline end time
-          run: "Ending pipeline at $(date +'%H:%M:%S %Z')"
+          run: echo "Ending pipeline at $(date +'%H:%M:%S %Z')"
 
         - name: String
           run: echo "PIPELINE SUCCESS WITHOUT ERRORS"
