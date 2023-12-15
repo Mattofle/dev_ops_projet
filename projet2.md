@@ -59,13 +59,18 @@ Liens utiles:
 ```
 - Quelle est la différence entre “use” et “run”. Expliquez par rapport à votre pipeline. 
 ```bash
-<votre réponse ici>
+<use est utilisé dans un step pour spécifier l action à exécuter, dans notre fichier on utilise les actions : actions/checkout@v4 pour extraire le code source du référentiel et actions/setup-node@v4 pour configurer l environnement Node.js>
+<run est utilisé dans un step pour exécuter une ou des commandes shell, dans notre fichier on l utilise pour executer des commandes comme npm install, npm runt lint ou echo pour afficher des informations>
 ```
 - Peut-on intervertir différentes étapes dans votre pipeline ? Que votre réponse soit oui ou non, expliquez par rapport à votre pipeline. 
 ```bash
-<votre réponse ici>
+<Oui, on peut par exemple intervertir le checking prettier avec les tests tdd. Mais, il est plus judicieux de d abord faire un check sur le formatage avant de lancer un check sur les tests.>
 ```
 - Je veux ajouter un test de sécurité sur mon pipeline en exécutant le programme secure_app. Que devrais-je faire ?  Quelles questions devriez-vous vous poser ? 
 ```bash
-<votre réponse ici>
+<On rajoute une nouvelle étape dans le fichier yml avec un name et un run pour executer le chemin réel du programme secure_app.>
+<On devrait se demander :> 
+<- A quel moment il serait le plus optimal de faire ce test dans la pipeline ?>
+<- Où est situé ce programme ?>
+<- Quel est l objectif de ce test ?>
 ```
