@@ -12,3 +12,4 @@ commitizen init cz-conventional-changelog --save-dev --save-exact
 npm install --save-dev jasmine
 npm install supertest --save-dev
 npm init @eslint/config
+npm install --save-dev webpack
